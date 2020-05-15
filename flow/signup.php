@@ -1,5 +1,5 @@
 <?php 
-include('register.php');
+include('includes/register.php');
 
 if (isset($_POST['signup-btn'])) {
     $username    = $_POST['username'];
@@ -46,18 +46,17 @@ if (isset($_POST['signup-btn'])) {
                 <br>
                 <p> Are you already a member? <a href = "login.php" style = "color: #404040">Login</a></p>  
                 <br>
-                <?php echo show_error(); ?>
                 <div class = "input"> 
                     <label> Username </label>
-                    <input type = "text" name = "username" value = "" class = "text-input" >
+                    <input type = "text" name = "username" value = "" class = "text-input" required >
                 </div>
                 <div class = "input">
                     <label> Password</label>
-                    <input type = "password" name = "password" value = "" class = "text-input">
+                    <input type = "password" name = "password" value = "" class = "text-input" required>
                 </div>
                 <div class = "input">
                     <label> Confirm Password</label>
-                    <input type = "password" name = "confirm_password" value = "" class = "text-input">
+                    <input type = "password" name = "confirm_password" value = "" class = "text-input" required>
                 </div>
                 <br>
                 <div class = "input">

@@ -1,5 +1,13 @@
-<?php include('register.php')?>
-<?php include('functions.php')?>
+<?php 
+include('includes/register.php');
+
+if (isset($_POST['login-btn'])){
+
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    checkuser($username,$password);
+}
+?>
 
 
 <!DOCTYPE html>
@@ -39,7 +47,7 @@
     <main>
         <div class = "member-content">
             <form action= "login.php" method = "post">
-                <?php echo show_error(); ?>
+                
 
                 <h2 class = "form-title">Login</h2>
                 <br>
