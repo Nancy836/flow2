@@ -45,7 +45,7 @@ function CheckUser($username,$password){
     if ($count==1){
         session_start();
         $_SESSION['user']= $username;
-        $_SESSION['sucess']="Loged in successfully";
+        $_SESSION['sucess']="Logged in successfully";
         header('location: index.php');
     }
     else{
