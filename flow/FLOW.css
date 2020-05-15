@@ -71,11 +71,11 @@ nav{
 }
 
 nav input[type=text] {
-    float: right;
+    
     padding: 6px;
     border: 1px solid #d17c83;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 14px;
 
 
 }
@@ -118,7 +118,17 @@ nav input[type=text] {
 
 .intro-text{
     padding-top: 30px;
+    padding-bottom: 50px;
+    
 
+}
+
+.text-box{
+    padding: 6px;
+    border: 1px solid #d17c83;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 20%;
 }
 
 .button{
@@ -129,9 +139,7 @@ nav input[type=text] {
     border-radius: 80px;
     border: 1px;
     font-size:13px;
-    
-
-    
+  
     
 }
 
@@ -185,8 +193,15 @@ nav input[type=text] {
 }
 .poem-header{
     float: center;
-    color: #404040;
+    color: #d17c83;
     padding-top: 40px;
+    text-align: center;
+
+
+}
+.poem-subheader{
+    float: center;
+    color: #404040;
     text-align: center;
 
 

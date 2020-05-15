@@ -1,4 +1,12 @@
-<?php include('functions.php')?>
+<?php 
+include('register.php');
+
+if (isset($_POST['signup-btn'])) {
+    $username    = $_POST['username'];
+	$password_1  = $_POST['password'];
+	$password_2  = $_POST['confirm_password'];
+	signup($username,$password_1,$password_2);
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,23 +42,22 @@
     <main>
         <div class = "member-content">
             <form action= "signup.php" method = "post">
-                <?php echo show_error(); ?>
-
                 <h2 class = "form-title">Sign up to become a member</h2>
                 <br>
                 <p> Are you already a member? <a href = "login.php" style = "color: #404040">Login</a></p>  
                 <br>
+                <?php echo show_error(); ?>
                 <div class = "input"> 
                     <label> Username </label>
-                    <input type = "text" name = "Username" value = "<?php echo $username; ?>" class = "text-input" >
+                    <input type = "text" name = "username" value = "" class = "text-input" >
                 </div>
                 <div class = "input">
                     <label> Password</label>
-                    <input type = "password" name = "password" value = "password_one" class = "text-input">
+                    <input type = "password" name = "password" value = "" class = "text-input">
                 </div>
                 <div class = "input">
                     <label> Confirm Password</label>
-                    <input type = "password" name = "confirm password" value = "password_two" class = "text-input">
+                    <input type = "password" name = "confirm_password" value = "" class = "text-input">
                 </div>
                 <br>
                 <div class = "input">

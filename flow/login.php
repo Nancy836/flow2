@@ -1,4 +1,7 @@
+<?php include('register.php')?>
 <?php include('functions.php')?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +47,7 @@
                 <br>
                 <div class = "input"> 
                     <label> Username </label>
-                    <input type = "text" name = "Username" class = "text-input" >
+                    <input type = "text" name = "username" class = "text-input" >
                 </div>
                 <div class = "input">
                     <label> Password</label>

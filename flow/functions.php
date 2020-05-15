@@ -1,42 +1,28 @@
 <?php 
+
 session_start();
 
-function DBConn($dbhost, $dbuser, $dbpass, $dbname){
-	$dbhost = 'localhost';
-    $dbuser  = 'root';
-    $dbpass = '';
-	$dbname = 'login';
-	
-	$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+require_once ('dbConn.php');
+require_once ('register.php');
 
-	if (!$connection){
-        die("Could not connect ....".mysqli_connect_error());
 
-	}
-	return $connection;
-
-}
-
-	
-// variable declaration
 $username = "";
 $errors   = array(); 
 
-// call the register() function if register_btn is clicked
+
 if (isset($_POST['signup_btn'])) {
-	register();
+	signup($username, $password_1, $password_2);
 }
 
-// REGISTER USER
-function register(){
-	// call these variables with the global keyword to make them available in function
+function register($username, $password_1, $password_2){
+
+	$connection = DBConn();
+	
 	global $connection, $errors, $username;
 
-	// receive all input values from the form. Call the e() function
-    // defined below to escape form values
-	$username    =  e($_POST['username']);
-	$password_1  =  e($_POST['password_1']);
-	$password_2  =  e($_POST['password_2']);
+	$username    =  $_POST['username'];
+	$password_1  =  $_POST['password'];
+	$password_2  =  $_POST['confirm_password'];
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
@@ -53,16 +39,32 @@ function register(){
 	if (count($errors) == 0) {
 		$password = md5($password_1);//encrypt the password before saving in the database
 
+		$query = "INSERT INTO Users (user_type, username, password) "
+			."VALUES('$user_type','$username', '$password')";
+
+		$result = mysqli_query($connection, $query);
+		if ($result) {
+			header('location: home.php');
+		} else {
+			echo "Could not insert record! " . mysqli_error($connection);
+		}
+	
+
 		if (isset($_POST['user_type'])) {
-			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO Users (username, user_type, password) 
-					  VALUES('$username','$user_type', '$password')";
-			mysqli_query($db, $query);
+			$user_type = $_POST['user_type'];
+			if (empty($username)) { 
+				array_push($errors, "Username is required"); 
+			}
+			if (empty($password)) { 
+				array_push($errors, "Password is required"); 
+			}
+			$query = "INSERT INTO Users (user_type, username, password) "
+			."VALUES('$user_type','$username', '$password')";
+			mysqli_query($connection, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO Users (username,user_type, password) 
-					  VALUES('$username', 'user', '$password')";
+			$query = "INSERT INTO Users (username,user_type, password)" ." VALUES('$username', 'user', '$password')";
 			mysqli_query($connection, $query);
 
 			// get id of the created user
@@ -75,33 +77,13 @@ function register(){
 	}
 }
 
-// return user array from their id
-function getUserById($id){
-	global $connection;
-	$query = "SELECT * FROM Users WHERE id=" . $id;
-	$result = mysqli_query($connection, $query);
-
-	$user = mysqli_fetch_assoc($result);
-	return $user;
-}
 
 // escape string
 function e($val){
-	global $db;
-	return mysqli_real_escape_string($db, trim($val));
+	global $connection;
+	return mysqli_real_escape_string($connection, trim($val));
 }
 
-function show_error() {
-	global $errors;
-
-	if (count($errors) > 0){
-		echo '<div class="error">';
-			foreach ($errors as $error){
-				echo $error .'<br>';
-			}
-		echo '</div>';
-	}
-}	
 
 function isLoggedIn()
 {
