@@ -1,0 +1,228 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-family: 'Poppins', sans-serif; 
+    
+  
+}
+
+header{
+    display: flex;
+    height: 10vh;
+    width: 90%;
+    margin: auto;
+    align-items: center ;
+    
+}
+
+.msg{
+    margin:5px auto;
+    padding:2px;
+    width:100%;
+    border-radius: 5px;
+    
+
+}
+
+.error{
+    color:#404040;
+    
+}
+
+
+.logo-container{
+    flex: 2;
+    text-align: left;
+    padding-top: 15px;
+ 
+    
+}
+
+.logo{
+    
+    color: #d17c83;
+    font-weight: 400;
+    font-family: Snell Roundhand, cursive;
+    font-size: 50px;
+    padding-bottom: 0%;
+ 
+
+}
+.subtext{
+   
+    color: #404040;
+    font-weight: 100;
+    
+    
+}
+
+nav{
+
+    flex: 2;
+    text-align: center;
+    
+
+
+}
+
+nav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: 1px solid #d17c83;
+    border-radius: 5px;
+    font-size: 15px;
+
+
+}
+
+.nav-links{
+    justify-content: space-around;
+    list-style: none;
+    display: flex;
+    color:#5f5f79;
+    text-align: center;
+}
+
+.nav-link{
+
+    color: #5f5f79;
+    font-size: 17px;
+    text-decoration: none;
+    
+}
+
+
+.page-title{
+    color: #5f5f79;
+    text-align : left;
+}
+
+.introduction{
+    color: #5f5f79;
+    text-align: center;
+
+}
+
+.cover img {
+    padding-top: 50px;
+    height : 60vh;
+    width : 60%;
+    border-radius: 10px;
+    
+}
+
+.intro-text{
+    padding-top: 30px;
+
+}
+
+.button{
+    background:#404040;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 80px;
+    border: 1px;
+    font-size:13px;
+    
+
+    
+    
+}
+
+
+.container{
+
+    width: 80%;
+    margin :auto;
+    overflow: hidden;
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+
+    
+}
+
+.box{
+    
+    
+    width: 30%;
+    padding:15px;
+    vertical-align: top;
+    display: inline-block;
+
+    
+}
+.box img{
+    height: 90%;
+    width : 90%;
+    padding-left: 15px;
+    border-radius: 10px;
+
+    
+}
+
+.poem_box img{
+    
+    height: auto;
+    padding: 30px;
+    padding-bottom: 5px;
+    width: 25%;
+    border-radius: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.poem-container{
+    text-align: center;
+
+
+}
+.poem-header{
+    float: center;
+    color: #404040;
+    padding-top: 40px;
+    text-align: center;
+
+
+}
+.poem{
+    padding-top: 20px;
+    font-size: 17px;
+    color: #5f5f79;
+    display: inline-block;
+    text-align: left;
+    
+
+
+}
+
+.member-content form div{
+    margin-bottom: 10px;
+}
+
+.member-content{
+
+    margin: 60px auto;
+    width: 30%;
+    padding: 70px;
+    color: white ;
+    background-image: url("Images/poem cover 2.jpg");
+    background-size: 160%;
+    border-radius: 10px;
+    
+
+}
+
+.text-input{
+    display: block;
+    width: 100%;
+    border-radius:5px;
+    padding: 8px 13px;
+}
+
