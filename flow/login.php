@@ -5,7 +5,7 @@ if (isset($_POST['login-btn'])){
 
     $username=$_POST['username'];
     $password=$_POST['password'];
-    checkuser($username,$password);
+    CheckUser($username,$password);
 }
 ?>
 
