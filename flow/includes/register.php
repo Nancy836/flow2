@@ -46,7 +46,7 @@ function CheckUser($username,$password){
         session_start();
         $_SESSION['user']= $username;
         $_SESSION['sucess']="Logged in successfully";
-        header('location: index.html');
+        header('location: submissions.html');
     }
     else{
         echo("wrong credentials".mysqli_error($connection));
